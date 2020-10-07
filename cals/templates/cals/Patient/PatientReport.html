@@ -1,0 +1,114 @@
+ {% extends 'PatientBase.html' %}
+
+    {% block content %}
+ <div class="content">
+    <div class="container">
+                    <h4>Patient Check</h4>
+                    <div class="row">
+                        <div class="col-6 col-lg-6 col-sm-12 p-0">
+                            <div class="form-group m-0">
+                                <label for="Name">Name :</label>
+                                <b>{{ patient.name }}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="age">Age :</label>
+                                <b>{{patient.age}}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="weight">Weight :</label>
+                                <b>{{patient.weight}}</b>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-6 col-sm-12 p-0">
+                            <div class="form-group m-0">
+                                <label for="Name">Contact :</label>
+                                <b>{{patient.contact}}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="age">Blood Group :</label>
+                                <b>{{patient.bloodgroup}}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="weight">Gender :</label>
+                                <b>{{patient.gender}}</b>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-6 col-sm-12 p-0">
+                            <div class="form-group m-0">
+                                <label for="address">Address :</label>
+                                <b>{{patient.address}}</b>
+                            </div>
+                        </div>
+
+                        <!--<div class="col-6 col-lg-6 col-sm-12 p-0">-->
+                            <!--<div class="form-group m-0">-->
+                                <!--<label for="address">Refered By :</label>-->
+                                <!--<b>Lorem ipsum dolor sit amet.</b>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+
+        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Prescription</th>
+                                                    <th>before</th>
+                                                    <th>after</th>
+                                                    <th>morning</th>
+                                                    <th>afternoon</th>
+                                                    <th>evening</th>
+                                                    <th>days</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for m in prescription %}
+                                            <tr>
+                                                <td> {{ m.prescription }}</td>
+                                                <td>{{m.before}}</td>
+                                                <td>{{m.after}}</td>
+                                                <td>{{m.morning}}</td>
+                                                <td>{{m.afternoon}}</td>
+                                                <td>{{m.evening}}</td>
+                                                <td>{{m.days}}</td>
+                                            </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+                                        </table>
+
+        <br>
+        <h5>Medical Lab Tests</h5>
+        <br>
+        <div class="col-12 col-lg-12 col-sm-12">
+
+
+                                                <table class="table">
+                                                    <tbody>
+                                                        {% for l in mTest %}
+                                                        <tr>
+                                                            <td>{{ l.testname }}</td>
+                                                            <td>{{ l.normal_range }}</td>
+                                                            <td>{{ l.test_found }}</td>
+                                                            <td>{{ l.remark }}</td>
+
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+
+
+
+                        </div>
+
+ </div>
+  {% endblock %}

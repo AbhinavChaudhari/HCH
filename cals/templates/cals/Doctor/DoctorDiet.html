@@ -1,0 +1,69 @@
+   {% extends 'DoctorBase.html' %}
+
+    {% block content %}
+   <div class="content">
+                <div class="container-fluid">
+                        <h4>Diet Manager</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-6 col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                  <label for="diet">Diet</label>
+                                  <input type="text" class="form-control" name="diet" id="diet" aria-describedby="helpId" placeholder="Diet">
+                                </div>
+                                <div class="form-group">
+                                        <label></label>
+                                        <input name="" id="" class="btn btn-success" type="submit" value="+ Diet">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <table id="tb-1" class="table table-striped" >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Diet ID</th>
+                                        <th scope="col">Diet</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>45890</td>
+                                        <td>Pratik Kakde</td>
+                                        <td>
+                                            <!-- Small modal -->
+                                            <a data-toggle="modal" data-target=".bd-example-modal-sm">
+                                                <ion-icon name="trash"></ion-icon>
+                                            </a>
+
+                                            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+                                                aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="container-fluid">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle">Delete Patient</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                ...
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-danger">Save changes</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                </div>
+            </div> {% endblock %}

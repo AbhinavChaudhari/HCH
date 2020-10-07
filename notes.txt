@@ -1,0 +1,13 @@
+
+install python ---- downlaod from google website search python 
+
+
+
+1) pip install virtualenv
+2)  virtualenv env
+3) .\env\Scripts\activate\
+4)  pip install django
+5) pip install pandas
+6) pip install sklearn
+7) python manage.py runserver
+

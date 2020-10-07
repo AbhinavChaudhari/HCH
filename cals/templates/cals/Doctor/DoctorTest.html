@@ -1,0 +1,378 @@
+ {% extends 'DoctorBase.html' %}
+
+    {% block content %}
+ <div class="content">
+                <div class="container-fluid">
+                    <h4>Patient Check</h4>
+                    <div class="row">
+                        <div class="col-6 col-lg-6 col-sm-12 p-0">
+                            <div class="form-group m-0">
+                                <label for="Name">Name :</label>
+                                <b>{{ patient.name }}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="age">Age :</label>
+                                <b>{{patient.age}}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="weight">Weight :</label>
+                                <b>{{patient.weight}}</b>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-6 col-sm-12 p-0">
+                            <div class="form-group m-0">
+                                <label for="Name">Contact :</label>
+                                <b>{{patient.contact}}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="age">Blood Group :</label>
+                                <b>{{patient.bloodgroup}}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="weight">Gender :</label>
+                                <b>{{patient.gender}}</b>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-6 col-sm-12 p-0">
+                            <div class="form-group m-0">
+                                <label for="address">Address :</label>
+                                <b>{{patient.address}}</b>
+                            </div>
+                        </div>
+
+                        <!--<div class="col-6 col-lg-6 col-sm-12 p-0">-->
+                            <!--<div class="form-group m-0">-->
+                                <!--<label for="address">Refered By :</label>-->
+                                <!--<b>Lorem ipsum dolor sit amet.</b>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                    <hr>
+                    <form method="POST" action={% url 'addTest2' %}>{% csrf_token %}
+                     <input type="hidden" name="pid" value={{ patient.id }} />
+                        <div class="col-12 col-lg-12 col-sm-12">
+                            <div class="card text-left">
+                                <div class="card-body">
+                                    <h4 class="card-title">Add Lab Test</h4>
+                                    <p class="card-text">
+                                        <div class="row">
+                                            <div class="col-3 col-lg-3 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="">Lab test</label>
+                                                    <input required class="form-control" list=tests name="tests">
+                                                        <datalist id=tests>
+                                                            <option value="Cortisol, serum"></option>
+                                                            <option value="Cortisol, (stimulation or suppression tests)"></option>
+                                                            <option value="Catecholamines, 24 hr urine"></option>
+                                                            <option value="Vanilylmandelic acid, 24 hr urine"></option>
+                                                            <option value="Urine free cortisol"></option>
+                                                            <option value="Sodium, serum"></option>
+                                                            <option value="Potassium, serum"></option>
+                                                            <option value="Sodium and potassium, serum"></option>
+                                                            <option value="Chloride, serum"></option>
+                                                            <option value="Sodium, 24 hr urine"></option>
+                                                            <option value="Potassium, 24 hr urine"></option>
+                                                            <option value="Sodium and potassium 24 hr urine"></option>
+                                                            <option value="Calcium, serum"></option>
+                                                            <option value="Calcium 24 hr urine"></option>
+                                                            <option value="Phosphate, serum"></option>
+                                                            <option value="Magnesium, serum"></option>
+                                                            <option value="Magnesium, urine"></option>
+                                                            <option value="Faecal occult blood, human haemoglobin specific"></option>
+                                                            <option value="Faecal fat (quantitative)"></option>
+                                                            <option value="Faecal reducing substances"></option>
+                                                            <option value="Fructosamine"></option>
+                                                            <option value="Glycosylated haemoglobin"></option>
+                                                            <option value="Glucose Tolerance Test standard"></option>
+                                                            <option value="Glucose Tolerance Test post-polycose"></option>
+                                                            <option value="Serum glucose"></option>
+                                                            <option value="Ferritin, serum"></option>
+                                                            <option value="Transferrin, serum"></option>
+                                                            <option value="Iron binding capacity, serum"></option>
+                                                            <option value="Iron, serum"></option>
+                                                            <option value="Folate, red cell"></option>
+                                                            <option value="Folate plus Vitamin B12, serum"></option>
+                                                            <option value="Cholesterol total, serum"></option>
+                                                            <option value="Triglycerides, fasting only"></option>
+                                                            <option value="Fasting lipid group test"></option>
+                                                            <option value="Lipoproteins, electrophoresis, serum"></option>
+                                                            <option value="Digoxin"></option>
+                                                            <option value="Lithium"></option>
+                                                            <option value="Antiepileptics"></option>
+                                                            <option value="Theophylline"></option>
+                                                            <option value="Proteins total, serum"></option>
+                                                            <option value="Albumin, serum"></option>
+                                                            <option value="Protein electrophoretic pattern, serum"></option>
+                                                            <option value="Electrophoresis concentrated urine"></option>
+                                                            <option value="Immunoglobulins (IgA, IgE, IgG, or IgM)"></option>
+                                                            <option value="Paraprotein Identification"></option>
+                                                            <option value="Proteins, 24 hr urine"></option>
+                                                            <option value="Microalbumin, early morning urine"></option>
+                                                            <option value="Creatinine, serum"></option>
+                                                            <option value="Urea, serum"></option>
+                                                            <option value="Urate or uric acid, serum"></option>
+                                                            <option value="Urinary calculus analysis"></option>
+                                                            <option value="Creatinine, 24 hr urine"></option>
+                                                            <option value="Creatinine clearance test"></option>
+                                                            <option value="Bicarbonate or Total CO2, serum"></option>
+                                                            <option value="pH, pO2, and pCO2"></option>
+                                                            <option value="Thyroid stimulating hormone, serum (TSH)"></option>
+                                                            <option value="Free thyroxine index or free T4"></option>
+                                                            <option value="Serum free T3"></option>
+                                                            <option value="Hydroxy-indoleacetic acetic acid (serotonin)"></option>
+                                                            <option value="Bilirubin total, serum"></option>
+                                                            <option value="Bilirubin total, conjugated and unconjugated serum"></option>
+                                                            <option value="Alcohol, diagnostic purposes only"></option>
+                                                            <option value="Liver function group"></option>
+                                                            <option value="Progesterone, serum"></option>
+                                                            <option value="Chorionic gonadotrophin qualitative plus quantitative (HCG)"></option>
+                                                            <option value="Follicle stimulating hormone (FSH)"></option>
+                                                            <option value="Luteinising hormone (LH)"></option>
+                                                            <option value="Oestradiol, serum"></option>
+                                                            <option value="Prolactin, serum"></option>
+                                                            <option value="Amylase"></option>
+                                                            <option value="Asparate amino transferase, serum - AST"></option>
+                                                            <option value="Creatine kinase, serum (CK)"></option>
+                                                            <option value="Acid phosphatase, serum"></option>
+                                                            <option value="Alkaline phosphatase, serum"></option>
+                                                            <option value="Gamma glutamyl transferase, serum (GGT)"></option>
+                                                            <option value="Myocardial screen"></option>
+                                                            <option value="Alanine transaminase - ALT"></option>
+                                                            <option value="Other enzymes where specifically requested"></option>
+                                                            <option value="Acid phosphatase"></option>
+                                                            <option value="Cytological examination of cervical smears (per accession)"></option>
+                                                            <option value="Cytological examination of smears from other sites (per accession)"></option>
+                                                            <option value="Cytological urgent examination of smear taken during surgery, extra"></option>
+                                                            <option value="Cytological examination of fine needle aspiration taken and examined by Pathologist"></option>
+                                                            <option value="Histology (per accession)"></option>
+                                                            <option value="Immunochemistry, first stain"></option>
+                                                            <option value="Immunochemistry, subsequent stains (up to a maximum of 5 in total)"></option>
+                                                            <option value="Immunocytochemistry, first stain"></option>
+                                                            <option value="Immunocytochemistry, subsequent stains (up to a maximum of 5 in total)"></option>
+                                                            <option value="Histology - frozen section during surgery, extra"></option>
+                                                            <option value="Skin tests, immediate hypersensitivity"></option>
+                                                            <option value="Tuberculin skin test"></option>
+                                                            <option value="Other skin tests for cell mediated immunity"></option>
+                                                            <option value="Auto-immune disease, anti-nuclear antibody"></option>
+                                                            <option value="Auto-immune disease, anti-nuclear antibody titre"></option>
+                                                            <option value="Auto-immune disease, thyroid"></option>
+                                                            <option value="Autoantibodies, other"></option>
+                                                            <option value="Rheumatoid factor - Rose Waaler test"></option>
+                                                            <option value="C-reactive protein test"></option>
+                                                            <option value="Antistreptococcal antibodies"></option>
+                                                            <option value="Paul-Bunnell (or equivalent)"></option>
+                                                            <option value="Syphilis - VDRL or other reagin test"></option>
+                                                            <option value="Syphilis - specific antibody test"></option>
+                                                            <option value="Syphilis - confirmatory specific antibody test"></option>
+                                                            <option value="Hydatids antibody"></option>
+                                                            <option value="Leptospira agglutination screen test"></option>
+                                                            <option value="Leptospira specific antibody test"></option>
+                                                            <option value="Brucella antibodies"></option>
+                                                            <option value="Toxoplasma antibodies IgG"></option>
+                                                            <option value="Toxoplasma antibodies IgM"></option>
+                                                            <option value="Rubella antibodies - IgG"></option>
+                                                            <option value="Rubella antibodies - IgM"></option>
+                                                            <option value="Hepatitis B - (Anti HBs) antibody"></option>
+                                                            <option value="Hepatitis B - (HBsAg) surface antigen"></option>
+                                                            <option value="Hepatitis B (anti HBc) antibody"></option>
+                                                            <option value="Hepatitis B (HBe) e antigen"></option>
+                                                            <option value="Hepatitis A IgM antibody"></option>
+                                                            <option value="Hepatitis A IgG antibody"></option>
+                                                            <option value="Hepatitis C antibody"></option>
+                                                            <option value="Salmonella agglutination tests"></option>
+                                                            <option value="CM virus, specific antibody titre"></option>
+                                                            <option value="Epstein-Barr virus IgM antibody"></option>
+                                                            <option value="Epstein-Barr virus IgG antibody"></option>
+                                                            <option value="Chlamydia direct antigen test"></option>
+                                                            <option value="Rotovirus direct antigen test"></option>
+                                                            <option value="Herpes virus direct antigen test"></option>
+                                                            <option value="Giardia direct antigen test"></option>
+                                                            <option value="HIV Screen test"></option>
+                                                            <option value="Erythrocyte sedimentation rate (ESR)"></option>
+                                                            <option value="Bleeding time"></option>
+                                                            <option value="Thrombin time"></option>
+                                                            <option value="Clot retraction"></option>
+                                                            <option value="Plasma prothrombin ratio"></option>
+                                                            <option value="Partial thrombosplastin clotting time"></option>
+                                                            <option value="Fibrinogen (qualitative)"></option>
+                                                            <option value="Fibrinogen (quantitative)"></option>
+                                                            <option value="Coagulation factors individual assays"></option>
+                                                            <option value="Coagulation profile"></option>
+                                                            <option value="Red blood cell inclusion bodies"></option>
+                                                            <option value="Anti-human globulin test including Coombs test"></option>
+                                                            <option value="Lupus erythematosis cells (LE cells)"></option>
+                                                            <option value="Red blood cell fragility"></option>
+                                                            <option value="Red blood cell autohaemolysis"></option>
+                                                            <option value="Red cell or white cell enzyme"></option>
+                                                            <option value="Donath-Landsteiner reaction"></option>"></option>
+                                                            <option value="Haemoglobin pigments - qualitative"></option>
+                                                            <option value="Haemoglobin pigments - quantitative"></option>
+                                                            <option value="Bone marrow aspirate - (per site, not per slide)"></option>
+                                                            <option value="Blood grouping ABO group"></option>
+                                                            <option value="Blood grouping - Rhesus - group"></option>
+                                                            <option value="Blood grouping - Rhesus - titre"></option>
+                                                            <option value="Blood grouping - Rhesus - phenotyping"></option>
+                                                            <option value="Blood grouping - ABO/ Rhesus group"></option>
+                                                            <option value="Swab, skin/wound/pus"></option>
+                                                            <option value="Swab, throat"></option>
+                                                            <option value="Swab, ear"></option>
+                                                            <option value="Swab, nasal"></option>
+                                                            <option value="Swab, peri-anal"></option>
+                                                            <option value="Swab, vaginal"></option>
+                                                            <option value="Swab, cervical"></option>
+                                                            <option value="Swab, urethral"></option>
+                                                            <option value="Swab, eye"></option>
+                                                            <option value="Swab, rectal for sexually transmitted diseases"></option>
+                                                            <option value="Enteric pathogens (faeces or rectal swab)"></option>
+                                                            <option value="Ova and cysts"></option>
+                                                            <option value="Aspirates, culture and sensitivities"></option>
+                                                            <option value="Blood culture"></option>
+                                                            <option value="Sputum (excluding tuberculosis)"></option>
+                                                            <option value="Other, culture, sensitivities and identification"></option>
+                                                            <option value="Mycology - skin"></option>
+                                                            <option value="Film - examination for malaria, filaria, and/or gonococci"></option>
+                                                            <option value="Film (concentrated) examination for filaria"></option>
+                                                            <option value="Seminal fluid - fertility"></option>
+                                                            <option value="Seminal fluid - post vasectomy"></option>
+                                                            <option value="Tuberculosis - sputum"></option>
+                                                            <option value="Tuberculosis - gastric aspirate"></option>
+                                                            <option value="Tuberculosis - urine"></option>
+                                                            <option value="Tuberculosis - other sites"></option>
+                                                            <option value="Urine culture - (with colony count, identification and sensitivities where indicated)"></option>
+                                                            <option value="Complete blood count (CBC)"></option>
+                                                            <option value="First antenatal group"></option>
+                                                            <option value="Antenatal subsequent groups"></option>
+                                                            <option value="Antenatal antibodies, including Coombs test"></option>
+                                                            <option value="Neonatal group"></option>
+                                                            <option value="Biochemistry - renal"></option>
+                                                            <option value="Biochemistry - blood gases"></option>
+                                                            <option value="Biochemistry - thyroid"></option>
+                                                            <option value="Thyroid Stimulating hormone (serum)"></option>
+                                                            <option value="Biochemistry - whatever"></option>
+                                                            <option value="Hydroxy-indoleacetic acid (serotonin)"></option>
+                                                            <option value="Biochemistry - reproductive"></option>
+                                                            <option value="Biochemistry - enzymes"></option>
+                                                            <option value="Cytology and morbid histology"></option>
+                                                            <option value="Diagnostic immunological and serological tests"></option>
+                                                            <option value="Biochemistry - proteins"></option>
+                                                            <option value="Platelet count"></option>
+                                                            <option value="Aspartate amino transferase (serum)"></option>
+                                                            <option value="Microbiology tests"></option>
+                                                            <option value="Urinalysis screen tests"></option>
+                                                            <option value="Biochemistry - electrolytes"></option>
+                                                            <option value="Occult Blood"></option>
+                                                            <option value="Biochemistry - glucose"></option>
+                                                            <option value="Vitamin B12 (serum)"></option>
+                                                            <option value="Serum folate"></option>
+                                                            <option value="Biochemistry - lipids"></option>
+                                                            <option value="Biochemistry tests"></option>
+                                                            <option value="Biochemistry - adrenal"></option>
+                                                            <option value="Biochemistry uncategorised tests"></option>
+                                                            <option value="Biochemistry - faeces"></option>
+                                                            <option value="Bicarbonate or total CO2 (serum)"></option>
+                                                            <option value="Biochemistry - liver"></option>
+                                                            <option value="Biochemistry - haemopoietic"></option>
+                                                            <option value="Haematology"></option>
+                                                            <option value="Biochemistry - monitoring drugs"></option>
+                                                            <option value="Screening tests"></option>
+                                                            <option value="Prostate Specific Antigen"></option>
+                                                            <option value="Prostate Specific Antigen"></option>
+                                                            <option value="Troponin T and Troponin I"></option>
+                                                            <option value="Serum Testosterone"></option>
+                                                            <option value="Histology (Levels 4 to 6) Waitemata Health only  "></option>
+                                                            <option value="Coagulation profile (Group H06 - H07 - S01) "></option>
+
+                                                        </datalist>
+
+                                                </div>
+                                                <table class="table">
+                                                    <tbody>
+                                                        {% for l in mTest %}
+                                                        <tr>
+                                                            <td>{{ l.testname }}</td>
+
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div class="col-2 col-lg-2 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="">Narmal Range</label>
+                                                    <input required type="text" class="form-control" name="NormalRange" id="" />
+                                                </div>
+                                                <table class="table">
+                                                    <tbody>
+                                                        {% for n in mTest %}
+                                                        <tr>
+                                                            <td>{{ n.normal_range }}</td>
+
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div class="col-2 col-lg-2 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="">Test Found</label>
+                                                    <input required type="text" class="form-control" name="TestFound" id="" />
+                                                </div>
+                                                <table class="table">
+                                                    <tbody>
+                                                        {% for f in mTest %}
+                                                        <tr>
+                                                            <td>{{ f.test_found }}</td>
+
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div class="col-4 col-lg-4 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="">Remark</label>
+                                                    <input required type="text" class="form-control" name="Remark" id="" />
+                                                </div>
+                                                <table class="table">
+                                                    <tbody>
+                                                        {% for r in mTest %}
+                                                        <tr>
+                                                            <td>{{ r.remark }}</td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div class="col-1 col-lg-1 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for=""></label><br>
+                                                    <input type="submit" class="btn btn-success pl-5 pr-5" value="Add">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-12">
+                            <a href="http://127.0.0.1:8000/DoctorReport/{{ patient.id }}/" class="btn btn-success float-right">Generate Pdf</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ {% endblock %}

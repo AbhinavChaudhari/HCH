@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+     {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Doctor</title>
+    <link rel="stylesheet" href={% static "admintemplate/vendor/simple-line-icons/css/simple-line-icons.css" %}>
+    <link rel="stylesheet" href={% static "css/font-awesome.min.css" %}>
+    <link rel="stylesheet" href={% static "admintemplate/css/styles.css" %}>
+</head>
+<body>
+<div class="page-wrapper flex-row align-items-center">
+    <div class="container">
+        <a href={% url 'index' %}> <h4>Home</h4></a>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-4"><form method="post" action="{% url 'PatientRegister' %}">
+                    <div class="card-header text-center text-uppercase h4 font-weight-light">
+                       Patient Register
+                    </div>
+                    <div>
+                        <h5 style="color:red;">{{ error }}</h5>
+                    </div>
+                    <div class="card-body py-5">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label class="form-control-label">Name * </label>
+                            <input type="text" class="form-control" name="name" placeholder="Full Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">Address * </label>
+                            <input type="text" class="form-control" name="address" placeholder="Address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">Contact * </label>
+                            <input type="text" class="form-control" name="contact" placeholder="Contact" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bloodgroup">Blood Group *</label>
+                            <select class="form-control" name="bloodgroup" id="bloodgroup" required>
+                                <option value="A+" name="A+">A+</option>
+                                <option value="A-" name="A-">A-</option>
+                                <option value="B+" name="B+">B+</option>
+                                <option value="B-" name="B-">B-</option>
+                                <option value="AB+" name="AB+">AB+</option>
+                                <option value="AB-" name="AB-">AB-</option>
+                                <option value="O+" name="O+">O+</option>
+                                <option value="O-" name="O-">O-</option>
+                                <option value="Not_Known" name="Not_Known">Not Known</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="gender">Gender *</label>
+                            <select class="form-control" name="gender" id="gender" required>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="weight">Weight *</label>
+                            <input type="number" name="weight" id="weight"
+                                maxlength="4" class="form-control" placeholder="Weight in kg"
+                                aria-describedby="helpId" required>
+                            <small id="helpId" class="text-muted">Please Enter
+                                Weight in Kg</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">Age *</label>
+                            <input type="number" name="age" id="age"
+                                maxlength="4" class="form-control" placeholder="Age"
+                                aria-describedby="helpId" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">Email *</label>
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">Password *</label>
+                            <input type="password" class="form-control" name="password1" placeholder="Password 1" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label">Confirm Password *</label>
+                            <input type="password" class="form-control" name="password2" placeholder="Password 2" required>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                            &nbsp;&nbsp;
+                            <a href="{% url 'PatientLogin' %}">Login</a>
+                        </div>
+                    </div>
+
+                </div></form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <p class="text-justify">At present, when one suffers from particular disease, then the person has to visit to doctor which is time consuming and costly too. Also if the user is out of reach of doctor and hospitals it may be difficult for the user as the disease can not be identified. So, if the above process can be completed using a automated program which can save time as well as money, it could be easier to the patient which can make the process easier. There are other Heart related Disease Prediction System using data mining techniques that analyzes the risk level of the patient.
+</div>
+
+        <div class="col-12">
+          <p class="text-justify">
+Disease Predictor is a web based application that predicts the disease of the user with respect to the symptoms given by the user. Disease Prediction system has data sets collected from different health related sites. With the help of Disease Predictor the user will be able to know the probability of the disease with the given symptoms.
+</div>
+
+        <div class="col-12">
+          <p class="text-justify">
+As the use of internet is growing every day, people are always curious to know different new things. People always try to refer to the internet if any problem arises. People have access to internet than hospitals and doctors. People do not have immediate option when they suffer with particular disease. So, this system can be helpful to the people as they have access to internet 24 hours.
+</div>
+
+
+      </div>
+    </div>
+    <hr>
+    <br>
+
+
+    <div class="container" id="login">
+      <div class="row">
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+          <div class="card mb-3">
+            <div class="card-header">
+              <h4>Admin</h4>
+            </div>
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Lorem, ipsum dolor.</h5>-->
+<!--              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, maxime!</p>-->
+<!--            </div>-->
+            <div class="card-footer"><a href=./admin/ class="btn btn-primary float-right">Admin Login</a></div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+          <div class="card mb-3">
+            <div class="card-header">
+              <h4>Doctor</h4>
+            </div>
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Lorem, ipsum dolor.</h5>-->
+<!--              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, maxime!</p>-->
+<!--            </div>-->
+            <div class="card-footer"><a href={% url 'DoctorIndex' %} class="btn btn-primary float-right">Doctor Login</a></div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+          <div class="card mb-3">
+            <div class="card-header">
+              <h4>Reception</h4>
+            </div>
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Lorem, ipsum dolor.</h5>-->
+<!--              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, maxime!</p>-->
+<!--            </div>-->
+            <div class="card-footer"><a href={% url 'ReceptionIndex' %} class="btn btn-primary float-right">Reception Login</a></div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+          <div class="card mb-3">
+            <div class="card-header">
+              <h4>Patient</h4>
+            </div>
+<!--            <div class="card-body">-->
+<!--              <h5 class="card-title">Lorem, ipsum dolor.</h5>-->
+<!--              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the-->
+<!--                card's content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, maxime!</p>-->
+<!--            </div>-->
+            <div class="card-footer"><a href={% url 'PatientIndex' %} class="btn btn-primary float-right">Patient Login</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <hr>
+  <br>
+
+
+{% endblock %}

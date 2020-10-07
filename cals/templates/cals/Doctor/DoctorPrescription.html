@@ -1,0 +1,549 @@
+ {% extends 'DoctorBase.html' %}
+
+    {% block content %}
+ <div class="content">
+                <div class="container-fluid">
+                    <h4>Patient Check</h4>
+                    <div class="row">
+                        <div class="col-6 col-lg-6 col-sm-12 p-0">
+                            <div class="form-group m-0">
+                                <label for="Name">Name :</label>
+                                <b>{{ patient.name }}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="age">Age :</label>
+                                <b>{{patient.age}}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="weight">Weight :</label>
+                                <b>{{patient.weight}}</b>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-6 col-sm-12 p-0">
+                            <div class="form-group m-0">
+                                <label for="Name">Contact :</label>
+                                <b>{{patient.contact}}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="age">Blood Group :</label>
+                                <b>{{patient.bloodgroup}}</b>
+                            </div>
+                        </div>
+                        <div class="col-3 col-lg-3 col-sm-6 p-0">
+                            <div class="form-group m-0">
+                                <label for="weight">Gender :</label>
+                                <b>{{patient.gender}}</b>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-6 col-sm-12 p-0">
+                            <div class="form-group m-0">
+                                <label for="address">Address :</label>
+                                <b>{{patient.address}}</b>
+                            </div>
+                        </div>
+
+                        <!--<div class="col-6 col-lg-6 col-sm-12 p-0">-->
+                            <!--<div class="form-group m-0">-->
+                                <!--<label for="address">Refered By :</label>-->
+                                <!--<b>Lorem ipsum dolor sit amet.</b>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                    <hr>
+
+                             <div class="col-12 col-12-6 col-sm-12">
+                            <div class="card text-left">
+                                <div class="card-body">
+                                    <form method="post" action={% url 'DoctorProcessP2' %}>{% csrf_token %}
+                                    <input type="hidden" name="disease" value={{disease}} />
+
+                                    <input type="hidden" name="pid" value={{ patient.id }} />
+                                    <h4 class="card-title">Add Prescriptions</h4>
+                                    <p class="card-text">
+                                        <div class="form-group">
+                                            <select class="form-control" name="prescription" id="">
+                                                <option>2FDC (Rifampicin 150mg + Isoniazid 75mg tab
+                                                </option><option>2FDC Paed. (isoniazid 30mg + rifampicin 60mg) tab
+</option><option>3FDC (Rifampicin 150mg + Isoniazid 75mg+Ethambutol 275)  tab
+</option><option>3FDC Paed. ( rifampicin 60mg+Isoniazid 30+Pyrazinamide 150)
+</option><option>4FDC (Rifampicin 150mg + Isoniazid 75mg + Pyrazinamide 400mg + Ethambutol 275mg) tab
+</option><option>Acenocoumarol ( Nicoumalone)1mg tab
+</option><option>Acetazolamide 250mg tab
+</option><option>Acyclovir 3% oint. (5g)
+</option><option>Acyclovir 400mg tab
+</option><option>Adrenaline 1mg/ml inj 1ml (1:1000)
+</option><option>Albendazole 400mg tab.
+</option><option>Allopurinol 100mg tab.
+</option><option>Aluminium hydroxide 250mg +Magnesium Hydroxide 400mg tab  (Antacid)
+</option><option>Amikacin sulphate 250mg/2ml inj
+</option><option>Amiodarone 200 mg tab.
+</option><option>Amitriptylline 25mg tab
+</option><option>Amlodipine 5mg tab
+</option><option>Amoxycillin 250mg scored tab/cap.
+</option><option>Ampicillin 500mg/vial inj
+</option><option>Anti Rabies Vaccine with disposable syringe & needle  (IM & SC)
+</option><option>Anti snake venom serum(viper,cobra,krait)  dry powder for inj. 10g
+</option><option>Antihaemorrhoidal oint. With applicator (with steroid)
+</option><option>Artemether 80mg/ml inj 1ml
+</option><option>Arthemether 20mg+Lumefanthrine 120mg (Coartem ®)
+</option><option>Aspirin 75mg enetric coated tab
+</option><option>Atenolol 50mg tab
+</option><option>Atorvastatin 10mg tab
+</option><option>Atracurium Besylate 10mg/ml inj. 2.5ml
+</option><option>Atropine 1% eye ointment, 5g
+</option><option>Atropine sulphate 1mg/ml inj (1ml)
+</option><option>Baclofen 10mg tab
+</option><option>BCG vaccine( dry powder 1ml)
+</option><option>Beclometasone dipropionate inhaler (50mcg/MDI) 200MDI
+</option><option>Benzathine Benzylpenicillin 24 lakh unit inj.
+</option><option>Benzoic acid powder 450gm
+</option><option>Benzyl alcohol  (preservative) 500ml
+</option><option>Benzylpenicillin 3g (50lakh unit) inj.
+</option><option>Betahistine 16mg tab
+</option><option>Betamethasone valerate 0.1 % skin cream,15g
+</option><option>Brimonidine 0.2% eye drops, 10ml
+</option><option>Bupivacaine 0.5% (heavy) inj. (4ml)
+</option><option>Bupivacaine 0.5% (plain) inj. (20ml)
+    </option><option>Calamine powder 450G
+    </option><option>Calcium gluconate 10% inj. (10 ml)
+    </option><option>Calcium lactate 300mg tab.
+    </option><option>Carbamazepine 200mg tab.
+    </option><option>Carbimazole 5mg tab.
+    </option><option>Carvedilol 3.125mg tab
+    </option><option>Cefotaxime 1g/vial inj.(reconstituted with 9.6ml WFI)
+    </option><option>Ceftriaxone 1g/vial inj.
+    </option><option>Ceftriaxone 250mg/vial inj
+    </option><option>Cephalexin 250mg tab/cap
+    </option><option>Cephazolin 500mg/vial inj.
+    </option><option>Cetirizine 10mg tab.
+    </option><option>Charcoal activated powder 450g
+    </option><option>Charcoal tab
+    </option><option>Chloramphenicol 0.4% eye drops, 5ml
+    </option><option>Chloramphenicol 1% 250mg eye applicaps
+    </option><option>Chloramphenicol 1g/vial inj.(IV)
+    </option><option>Chloramphenicol 250mg cap.
+    </option><option>Chlorhexidine 7.5% + cetrimide 15% conc. soln.
+    </option><option>Chlorine  Powder, 500gm
+    </option><option>Chlorobutanol powder (preservative)
+    </option><option>Chloroform spirit
+    </option><option>Chloroquine 150mg tab.
+    </option><option>Chlorpromazine 100mg tab
+    </option><option>Chlorpromazine 25mg/ml inj. 2ml
+    </option><option>Cinnarizine 15mg tab
+    </option><option>Ciprofloxacin 0.3% eye/ear drops, 5ml
+    </option><option>Ciprofloxacin 2mg/ml  inj. 100ml
+    </option><option>Ciprofloxacin 500mg tab.
+    </option><option>Clobazam 5mg tablet
+    </option><option>Clobetasol propionate cream 0.05% w/w, 15g
+    </option><option>Clofazimine 100mg cap.
+    </option><option>Clofazimine 50mg cap.
+    </option><option>Clomiphene 50mg tab.
+    </option><option>Clonazepam 0.5mg tablet (CD)
+    </option><option>Clopidogrel 75mg tablet
+    </option><option>Clotrimazole 1% oint., 15g
+    </option><option>Clotrimazole 100mg pessary
+    </option><option>Cloxacillin 250mg cap.
+    </option><option>Cloxacillin 250mg/vial inj.
+    </option><option>Coal tar solution 450ml
+    </option><option>Codeine phosphate 15mg tab. (CD)
+    </option><option>Compound benzoin inhalation
+    </option><option>Compound solution of sodium lactate inj. (500ml)
+    </option><option>Condom (Male & Female)
+    </option><option>Conjugated oestrogen 0.625mg tab
+    </option><option>Copper containing device
+    </option><option>Cyclopentolate 0.5% eye drops, 5ml
+    </option><option>Cyclophosphamide 200mg/vial inj.
+    </option><option>Cyclophosphamide 50mg tab.
+    </option><option>Cycloserine 250mg tab.
+    </option><option>Cyclosporin 100mg cap (Neoral ®)
+    </option><option>Cyclosporin 25mg cap (Neoral ®)
+    </option><option>Cyclosporin 50mg cap (Neoral ®)
+    </option><option>Dapsone 50mg tab.
+    </option><option>Deflazacort 1mg tablet
+    </option><option>Deflazacort 6mg tablet
+    </option><option>Dexamethasone 4mg/ml inj. (2ml)
+    </option><option>Dextrose 10% inj. (500ml)
+    </option><option>Dextrose 25% inj. (100ml)
+    </option><option>Dextrose 5% inj. (500ml)
+    </option><option>Dextrose 5% sodium chloride 0.45% inj (500ml)
+    </option><option>Dextrose 5% sodium chloride 0.9% inj (500ml)
+    </option><option>Diazepam 5mg tab (CD)
+    </option><option>Diazepam 5mg/ml inj. (2ml) CD
+    </option><option>Diclofenac 100mg suppositories
+    </option><option>Diclofenac Sodium 25mg/ml inj. (3ml)
+    </option><option>Dicyclomine 10mg (Dicycloverine) tab
+    </option><option>Dicyclomine 10mg/ml (Dicycloverine) inj 2ml
+    </option><option>Digoxin 250mcgmg/ml inj (2ml)
+    </option><option>Digoxin 250mcg tab
+    </option><option>Digoxin 50 mcg/ml oral soln.60 ml
+    </option><option>Dopamine 200mg/5ml inj.
+    </option><option>Doxorubicin 10mg/vial inj.(reconstituted with 5ml WFI)
+    </option><option>Doxycycline 100mg tab/cap.
+    </option><option>DTP Vaccines 5ml
+    </option><option>DTP-Hep B- HIib vaccine (Pentavalent) 0.5ml
+    </option><option>Efavirenz 600mg tab
+    </option><option>Enalapril 5mg tab
+    </option><option>Ephedrine 30mg tab
+    </option><option>Ephedrine 5mg/ml (1ml) inj 30ml
+    </option><option>Ergotamine Tartrate 1mg + Caffeine 100mg tab.
+    </option><option>Erythromycin Sterate 250mg tab.
+    </option><option>Ethambutol 400mg tab.
+    </option><option>Ethinyloestradiol 50 mcg tab.
+    </option><option>Ethionamide 250mg tab.
+    </option><option>Ethyl Chloride spray with devices (100ml)
+    </option><option>Etofylline 84.7+Theophylline 25.3 mg/ml (Deriphyllin) inj.2ml
+    </option><option>Fenofibrate 200mg tablet
+    </option><option>Fentanyl Citrate 50mcg/ml inj 2ml (CD)
+    </option><option>Ferrous Sulphate 60mg + Folic acid 0.40mg tab.
+    </option><option>Finasteride 5mg tablet
+    </option><option>Fluconazole 0.3% eye drops , 5ml
+    </option><option>Fluorescin 4% strips (100 strips/pkt)
+    </option><option>Fluorouracil 500mg/10ml inj
+    </option><option>Fluoxetine 20mg tab
+    </option><option>Fluphenazine Decanuate 25mg/1ml Inj.
+    </option><option>Folic Acid 5mg tab.
+    </option><option>Frusemide 10mg/ml inj (2ml)
+    </option><option>Frusemide 40mg tab
+    </option><option>Gamma Benzene Hexachloride 1% (100ml)
+    </option><option>Gelofusine®  (500ml)
+    </option><option>Gentamicin 40mg/ml inj. (2ml)
+    </option><option>Gentian violet crystals
+    </option><option>Glibenclamide 5mg tab.
+    </option><option>Glipizide 5mg tablet
+    </option><option>Glutaraldehyde 2% solution (5L)
+    </option><option>Glycerin 450ml
+    </option><option>Glycerin suppository (adult)
+    </option><option>Griseofulvin 250mg tab.
+    </option><option>Haloperidol 5mg/ml inj. 1ml
+    </option><option>Halothane inhalation 250ml/bottle
+    </option><option>Heparin 5000 IU/ml inj (5ml)
+    </option><option>Hepatitis B vaccine (r DNA) 10ml/vial
+    </option><option>Hermin inj (250ml)
+    </option><option>Homatropine 2% eye drops, 5ml
+    </option><option>Human (soluble) insulin 40 I.U/ml, 10ml
+    </option><option>Human Albumin 20%, 100ml
+    </option><option>Human Insulin Isophane 40 I.U/ml, 10ml
+    </option><option>Human Mixtard (neutral + isophane) 30: 70, 10ml
+    </option><option>Human Normal Immunoglobulin 16.5% Inj.(HNIG)
+    </option><option>Human Papiloma Vaccines (HPV)
+    </option><option>Human Rabies Immunoglobulin (RIG) 500IU
+    </option><option>Hyaluronidase 1500 iu/ml inj, 1ml
+    </option><option>Hydralazine 20mg/1ml inj
+    </option><option>Hydralazine 25mg tab
+    </option><option>Hydrochlorothiazide 25mg tab
+    </option><option>Hydrocortisone 1% cream, 15g
+    </option><option>Hydrocortisone 1% eye ointment (5g)
+    </option><option>Hydrocortisone acetate 25mg/ml, 5ml inj.
+    </option><option>Hydrocortisone Sodiumsuccinate 100mg/ml inj.vial
+    </option><option>Hydrogen peroxide 6% (20 volume) plastic bottle 450ml
+    </option><option>Hydroxylpropyl Methylcellulose 2% Inj. (Intra-occular with prefilled syringe)
+    </option><option>Ibuprofen 400mg tab.
+    </option><option>Indomethacin 25mg cap.
+    </option><option>Iodine Crytsal powder, 25gm
+    </option><option>Iohexol 300mg/ml inj. 10ml
+    </option><option>Iron Dextran (50mg elemental iron/ml) IM, IV inj. 2ml
+    </option><option>Isoflurane solution 250ml
+    </option><option>Isoniazid 100mg tab.
+    </option><option>Isoniazid 300mg tab.
+    </option><option>Isoprenaline 2mg/ml inj. 1ml
+    </option><option>Isosorbide dinitrate 10mg tab
+    </option><option>Isosorbide dinitrate 5mg sublingual tab
+    </option><option>Kanamycin 500mg/vial inj.
+    </option><option>Ketamine 50mg/ml inj (10ml)
+    </option><option>Ketoconazole 200mg tab
+    </option><option>KY jelly
+    </option><option>Lactulose Solution (200ml)
+    </option><option>Lamivudine 100mg tablet
+    </option><option>Lamivudine 150mg tab
+    </option><option>Lamivudine 50mg/5ml syrup 240ml
+    </option><option>Lamotrigine 50mg tab
+    </option><option>Levetiracetam 500mg tablet
+    </option><option>Levodopa 250mg + Carbidopa 25mg tab.
+    </option><option>Levonorgestrel 0.3mg + ethinyloestradiol 0.03mg tab
+    </option><option>Levonorgestrel 750mcg tab
+    </option><option>Lignocaine 2% + adrenaline 1:80000 (Dental cartridge) 1.8ml inj
+    </option><option>Lignocaine 2% + adrenaline 1 in 100,000 inj., 30ml
+    </option><option>Lignocaine 2% + adrenaline 1 in 200,000 inj., 30ml
+    </option><option>Lignocaine 2% 30ml/vial inj (plain) with preservative
+    </option><option>Lignocaine 2% gel, 30g/tube
+    </option><option>Lignocaine 2% inj (Xylocard (R)) 50ml (presrvative free)
+    </option><option>Lignocaine 4% solution (30ml)
+    </option><option>Lignocaine 5% (heavy) inj. 2ml
+    </option><option>Lignocaine HCl 10% spray, 80ml
+    </option><option>Lopinavir with ritonavir 200/50mg tab
+    </option><option>Lorazepam 1mg tab.(CD)
+    </option><option>Losartan 25mg tab.
+    </option><option>Magnesium sulphate 50% Inj 2ml
+    </option><option>Magnesium sulphate powder 400 g
+    </option><option>Mannitol 20% inj (350ml)
+    </option><option>Measles Rubella vaccine (dry powder)
+    </option><option>Medroxyprogesterone acetate 10mg tab.
+    </option><option>Medroxyprogesterone acetate depot 150mg/1ml vial inj
+    </option><option>Mefenamic acid 500mg tab.
+    </option><option>Metformin 500mg tab.
+    </option><option>Methotrexate 2.5mg tab.
+    </option><option>Methoxsalen 0.75% w/v topical solution 25ml
+    </option><option>Methylcellulose 0.3% eye drops, 10ml
+    </option><option>Methyldopa 250mg tab
+    </option><option>Methylergometrine 125 mcg tab
+    </option><option>Methylergometrine 200 mcg/ml inj (1ml)
+    </option><option>Methylsalicylate 450 ml
+    </option><option>Metoclopramide 10mg tab
+    </option><option>Metoclopramide 10mg/ml inj (2ml)
+    </option><option>Metoprolol 25mg tab
+    </option><option>Metronidazole 400mg tab.
+    </option><option>Metronidazole 5mg/ml inj. 100ml
+    </option><option>Microbar Oral Suspension
+    </option><option>Midazolam 1mg/ml inj, 10ml
+    </option><option>Misoprostol 100mcg tab
+    </option><option>Mixed gasgangrene antitoxin inj.
+    </option><option>Morphine 10mg tab. (CD)
+    </option><option>Morphine 15mg/ml inj. (1ml) CD
+    </option><option>Multi electrolyte 500ml (NS-PD - Lyte)
+    </option><option>Multivitamin IV inj. (10ml)
+    </option><option>Mycophenolate mofetil 250mg cap(cellcept® )
+    </option><option>Mycophenolate mofetil 500mg cap (cell cept®)
+    </option><option>Naloxone 0.4mg/ml, 1ml inj.
+    </option><option>Neomycin + Polymixin + Bacitracin eye ointment 5g
+    </option><option>Neostigmine 0.5mg/ml inj (1ml)
+    </option><option>Nevirapine 200mg tab
+    </option><option>Nevirapine 50mg/5ml syrup 250ml
+    </option><option>Niclosamide 500mg tab.
+    </option><option>Nifedipine 20mg SR tab
+    </option><option>Nitrofurantoin 100mg tab.
+    </option><option>Nitrofurazone 0.2% cream
+    </option><option>Nitroglycerin 5mg/ml inj (5ml)
+    </option><option>Nitrous Oxide inhalation
+    </option><option>Norfloxacin 400mg tab .
+    </option><option>Nystatin 500,000 unit tab
+    </option><option>Ofloxacin 400mg tab/cap
+    </option><option>Olanzapine 10mg tab
+    </option><option>Omeprazole 20mg cap
+    </option><option>Ondansetron 4mg tablet
+    </option><option>Ondansetron 2mg/ml inj 4ml
+    </option><option>Oral Rehydration Salt for 1L (WHO formula)
+    </option><option>Oxybutynin 2.5mg tab
+    </option><option>Oxygen inhalation
+    </option><option>Oxytocin 5 unit / 1ml inj
+    </option><option>Paracetamol 150mg/ml inj (2ml)
+    </option><option>Paracetamol 500mg tab.
+    </option><option>Penicillin V 250mg tab.
+    </option><option>Pentoxifyllin 400mg tab
+    </option><option>Pethidine 50mg/ml inj. (2ml) CD
+    </option><option>Phenobarbital 200mg/ml inj. 1ml (CD)
+    </option><option>Phenobarbital 30mg tab.( CD)
+    </option><option>Phenytoin 100mg tab.
+    </option><option>Phenytoin 50mg/ml inj 2ml
+    </option><option>Phytomenadione (vit. K) 10mg/ml inj (1ml)
+    </option><option>Pioglitazone 15mg tab
+    </option><option>Piracetam 400mg cap
+    </option><option>Podophyllum resin 25g
+    </option><option>Poliomyelitis oral solution
+    </option><option>Potassium chloride 15% inj. (10ml)
+    </option><option>Potassium chloride powder 450g
+    </option><option>Potassium iodide crystals  450g
+    </option><option>Potassium permanganate crystals, 450g
+    </option><option>Povidone Iodine Solution 5% w/v,500ml
+    </option><option>Pralidoxime 1g inj
+    </option><option>Prednisolone 20mg tab
+    </option><option>Prednisolone 5mg tab
+    </option><option>Prednisolone acetate 1% eye drops, 5ml
+    </option><option>Primaquine 7.5mg tab.
+    </option><option>Procainamide 100mg/ml inj
+    </option><option>Procaine Benzylpenicillin 3g, 10ml inj.
+    </option><option>Promethazine hydrochloride 10mg tab
+    </option><option>Promethazine hydrochloride 25mg/ml inj (2ml)
+    </option><option>Propofol 10mg/ml Inj, 10ml
+    </option><option>Propranolol 40mg tab.
+    </option><option>Protamine Sulphate 10mg/ml inj (5ml)
+    </option><option>Pyrazinamide 500mg tab.
+    </option><option>Pyridoxine (Vitamin B6) 25mg tab.
+    </option><option>Quetiapine 100mg tablet
+    </option><option>Quinine 200mg tab.
+    </option><option>Quinine 300mg/ml inj 2ml
+    </option><option>Ranitidine 150mg tab
+    </option><option>Ranitidine 150mg/ml inj.(2ml)
+    </option><option>Retinol (Vitamin A) 200,000 unit cap.
+    </option><option>Rifampicin 150mg tab.
+    </option><option>Rifampicin 300mg tab.
+    </option><option>Risperidone 2mg tab.
+    </option><option>Ritodrine HCl 2mg /ml inj  5ml
+    </option><option>Ritodrine HCl 10mg tab.
+    </option><option>Salbutamol 4mg tab
+    </option><option>Salbutamol metered dose Inhalar  (100mcg/MDI) 200MDI
+    </option><option>Salbutamol Respiratory Solution 5mg/ml  15ml
+    </option><option>Salicylic acid powder
+    </option><option>Senna 15mg sennosides tab
+    </option><option>Sevoflurane Solution Inhalation 250ml
+    </option><option>Silver sulphadiazine 1% cream 25g
+    </option><option>Sodium amidotriazoate+ meglumin amidotriazoate 10:60 solution (150ml)
+    </option><option>Sodium bicarbonate 7.5 % inj. (25ml)
+    </option><option>Sodium bicarbonate powder 450g
+    </option><option>Sodium chloride 0.9% inj (500ml)
+    </option><option>Sodium Citrate powder (0.3 molar)
+    </option><option>Sodium Stibogluconate 100mg/30ml inj.
+    </option><option>Sodium Valproate 200mg tab.
+    </option><option>Spirit (L)
+    </option><option>Spironolactone 25mg tab
+    </option><option>Stavudine 30mg tab
+    </option><option>Streptomycin 1G/vial inj.(reconstituted with 2ml WFI)
+    </option><option>Sulphamethoxazole + trimethoprim 480mg/5ml inj 5ml
+    </option><option>Sulphamethoxazole 400mg+Trimethoprim 80mg tab.
+    </option><option>Sulphur sublime powder 450g
+    </option><option>Suxamethonium 50mg/ml inj. 2ml
+    </option><option>Tacrolimus 1mg tab (Pangraf ® )
+    </option><option>Tamsulosin 0.4mg tab
+    </option><option>Tenofovir 300mg tablet
+    </option><option>Tetanus Immunoglobulin (TIG) 500iu Inj.
+    </option><option>Tetatus Diptheria (Td) inj. 5ml
+    </option><option>Tetracycline 1% eye ointment
+    </option><option>Theophylline 69mg + Etophylline 231mg (retard tab).
+    </option><option>Thiamine (Vit B1) 100mg/ml inj. (1ml)
+    </option><option>Thiamine 75mg tab
+    </option><option>Thiopental sodium 1g/vial inj.
+    </option><option>Thyroxine 100 mcg tab.
+    </option><option>Timolol maleate 0.5% eye drops, 10ml
+    </option><option>Tobramycin 0.3% eye drops, 5ml
+    </option><option>Tramadol HCl 50mg/ml inj.(CD)
+    </option><option>Tranexamic acid 250mg tab
+    </option><option>Tranexamic acid 50mg/ml injection 5ml
+    </option><option>Triamcinolone acetonide 0.1% cream, 15g
+    </option><option>Triamcinolone Acetonide Inj. 40mg/ml (1ml)
+    </option><option>Trihexyphenidyl 2mg tab.
+    </option><option>Tropicamide 1% eye drops, 5ml
+    </option><option>Vancomycin 500mg Inj
+    </option><option>Vecuronium bromide 4mg/ml inj. 2ml
+    </option><option>Verapamil 2.5mg/ml inj (2ml)
+    </option><option>Verapamil 40mg tab
+    </option><option>Vincristine 1mg/ml inj. 1ml
+    </option><option>Vitamin B complex (250mg/10ml  inj
+    </option><option>Vitamin B complex tab.
+    </option><option>Vitamin B12 (hydroxycobalamin) 1mg/ml inj, Mecobalamin 500mcg/1ml inj
+    </option><option>Vitamin C 100mg/ml inj (5ml)
+    </option><option>Vitamin C 250mg tab.
+   </option><option>Warfarin 1mg tab
+    </option><option>Warfarin 5mg tab.
+    </option><option>Water for injection (5ml) Plastic
+    </option><option>White soft paraffin 1kg
+    </option><option>Zidovudine 300mg tab
+    </option><option>Zidovudine 50mg/5ml syrup 240ml
+    </option><option>Zinc oxide powder 450G
+                                            </option><option>Zinc Sulphate 20mg tab</option>
+
+                                            </select>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-4 col-lg-4 col-sm-12">
+                                                <div class="form-group">
+                                                    <label>Before / After</label>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <div class="form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input type="radio" class="form-check-input" name="beforeafter" value="before">Before
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input type="radio" class="form-check-input" name="beforeafter" value="after">After
+                                                        </label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-4 col-lg-4 col-sm-12">
+                                                <div class="form-group">
+                                                    <label>Time</label>
+                                                </div>
+
+                                                <div class="form-group">
+
+                                                    <div class="form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" name="morning" value="morning">Morning
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check-inline">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" name="afternoon" value="afternoon">Afternoon
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check-inline disabled">
+                                                        <label class="form-check-label">
+                                                            <input type="checkbox" class="form-check-input" name="evening" value="evening">Evening
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 col-lg-4 col-sm-12">
+                                                <div class="form-group">
+                                                  <label for="">Days</label>
+                                                  <select class="form-control" name="days" id="">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                        <option>6</option>
+                                                        <option>7</option>
+                                                        <option>8</option>
+                                                        <option>9</option>
+                                                  </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-success" name="" id="" aria-describedby="helpId"
+                                                value="+ Add">
+                                        </div></form>
+
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Prescription</th>
+                                                    <th>before</th>
+                                                    <th>after</th>
+                                                    <th>morning</th>
+                                                    <th>afternoon</th>
+                                                    <th>evening</th>
+                                                    <th>days</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for m in prescription %}
+                                            <tr>
+                                                <td> {{ m.prescription }}</td>
+                                                <td>{{m.before}}</td>
+                                                <td>{{m.after}}</td>
+                                                <td>{{m.morning}}</td>
+                                                <td>{{m.afternoon}}</td>
+                                                <td>{{m.evening}}</td>
+                                                <td>{{m.days}}</td>
+                                            </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+
+    <div class="col-12 col-12-6 col-sm-12">
+    <a href="http://127.0.0.1:8000/addTest/{{patient.id}}/" class="btn btn-success">Add Test</a>
+</div>
+
+                </div>
+            </div>
+ {% endblock %}
